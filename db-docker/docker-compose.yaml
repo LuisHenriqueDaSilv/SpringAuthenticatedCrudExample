@@ -1,0 +1,17 @@
+services:
+  database:
+    image: postgres
+    container_name: spring_authenticated_crud_example
+    environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=password
+    ports:
+      - 5432:5432
+    volumes:
+      - type: volume
+        source: authenticated_crud_example_volume 
+        target: /var/lib/postgresql/data
+
+volumes:
+  authenticated_crud_example_volume:
+    name: authenticated_crud_example_volume
